@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: 248 250 249;
+    --color-surface: 255 255 255;
+    --color-surface-2: 244 247 246;
+    --color-border: 226 232 230;
+    --color-text: 26 31 29;
+    --color-text-muted: 94 104 100;
+    --color-primary: 22 101 52;
+    --color-primary-hover: 20 85 45;
+    --color-primary-soft: 222 236 228;
+    --color-secondary: 30 41 59;
+    --color-accent: 202 138 4;
+    --color-accent-soft: 251 243 224;
+    --color-success: 22 163 74;
+    --color-warning: 217 119 6;
+    --color-error: 220 38 38;
+    --color-info: 2 132 199;
+    --color-sidebar: 21 28 25;
+    --color-sidebar-text: 220 226 223;
+    --color-sidebar-muted: 140 152 147;
+    --color-sidebar-active: 34 101 52;
+  }
+
+  .dark {
+    --color-bg: 12 16 14;
+    --color-surface: 22 28 25;
+    --color-surface-2: 30 38 34;
+    --color-border: 42 52 47;
+    --color-text: 233 237 235;
+    --color-text-muted: 156 167 161;
+    --color-primary: 74 222 128;
+    --color-primary-hover: 56 189 100;
+    --color-primary-soft: 30 50 38;
+    --color-secondary: 148 163 184;
+    --color-accent: 250 204 21;
+    --color-accent-soft: 45 38 18;
+    --color-success: 74 222 128;
+    --color-warning: 251 191 36;
+    --color-error: 248 113 113;
+    --color-info: 56 189 248;
+    --color-sidebar: 8 12 10;
+    --color-sidebar-text: 220 226 223;
+    --color-sidebar-muted: 120 132 127;
+    --color-sidebar-active: 34 80 52;
+  }
+
+  * {
+    border-color: rgb(var(--color-border));
+  }
+
+  body {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgb(var(--color-border));
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--color-text-muted));
+  }
+}
+
+@layer components {
+  .surface {
+    background-color: rgb(var(--color-surface));
+    border: 1px solid rgb(var(--color-border));
+  }
+  .surface-2 {
+    background-color: rgb(var(--color-surface-2));
+  }
+  .text-muted {
+    color: rgb(var(--color-text-muted));
+  }
+  .btn-primary {
+    background-color: rgb(var(--color-primary));
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.15s;
+  }
+  .btn-primary:hover {
+    background-color: rgb(var(--color-primary-hover));
+  }
+  .btn-ghost {
+    color: rgb(var(--color-text-muted));
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.15s;
+  }
+  .btn-ghost:hover {
+    background-color: rgb(var(--color-surface-2));
+  }
+  .card {
+    background-color: rgb(var(--color-surface));
+    border: 1px solid rgb(var(--color-border));
+    border-radius: 0.75rem;
+  }
+  .input {
+    background-color: rgb(var(--color-surface));
+    border: 1px solid rgb(var(--color-border));
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    color: rgb(var(--color-text));
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  .input:focus {
+    border-color: rgb(var(--color-primary));
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.125rem 0.5rem;
+    border-radius: 9999px;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-in {
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animate-pulse-soft {
+  animation: pulse-soft 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
